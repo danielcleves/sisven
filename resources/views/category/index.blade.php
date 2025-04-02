@@ -30,12 +30,12 @@
             <tbody>
                 @foreach ($categories as $category)
                 <tr>
-                    <th scope="row">{{ $category->cate_codi }}</th>
-                    <td>{{ $category->cate_nomb }}</td>
-                    <td>{{ $category->cate_desc }}</td>
+                    <th scope="row">{{ $category->id }}</th>
+                    <td>{{ $category->name }}</td>
+                    <td>{{ $category->description }}</td>
                     <td>
-                        <a href="{{ route('categories.edit', ['category'=>$category->cate_codi]) }}" class="btn btn-info">Edit</a>
-                        <form action="{{ route('categories.destroy', ['category' => $category->cate_codi]) }}" method="post" style="display: inline-block">
+                        <a href="{{ route('categories.edit', ['category'=>$category->id]) }}" class="btn btn-info">Edit</a>
+                        <form action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="post" style="display: inline-block">
                             @method('delete')
                             @csrf
                             <input class="btn btn-danger" type="submit" value="Delete">
