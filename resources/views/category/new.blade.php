@@ -16,7 +16,7 @@
             @csrf
             <div class="mb-3">
                 <label for="id" class="form-label">Code</label>
-                <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" disabled>
+                <input type="text" class="form-control" id="id" name="id" aria-describedby="idHelp" name="id" disabled>
                 <div id="idHelp" class="form-text">Category Code</div>
             </div>
             <div class="mb-3">
@@ -24,7 +24,10 @@
                 <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name"
                     placeholder="Category name.">
             </div>
-
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Category description."></textarea>
+            </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Save</button>
                 <a href="{{ route('categories.index') }}" class="btn btn-warning">Cancel</a>
