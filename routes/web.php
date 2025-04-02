@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    Route::patch('/categories/{category}', [CategoryController::class, 'update'])->name('category.update');
+    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
 });
 
 require __DIR__.'/auth.php';
