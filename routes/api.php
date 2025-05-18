@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\CustomerController;
 use App\Http\Controllers\api\PayModeController;
 use App\Http\Controllers\api\CategoryController;
+use App\Http\Controllers\api\ProductController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -28,3 +29,10 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('store');
 Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('show');
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('update');
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('destroy');
+
+
+Route::get('/products', [ProductController::class, 'index'])->name('index');
+Route::post('/products', [ProductController::class, 'store'])->name('store');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('update');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('destroy');
